@@ -5,7 +5,7 @@
 // the generated .output/server/wrangler.json; deploy with `pnpm cf:deploy`.
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "aisite-starter",
+  "name": "airapvideofree",
   // Pin it: left unset, nitro fills in the build machine's local date, and
   // when local time is a day ahead of UTC the deploy fails with
   // "Can't set compatibility date in the future".
@@ -18,14 +18,14 @@
     "DATABASE_PROVIDER": "d1",
     // Server-side runtime fallbacks for the build-time VITE_* values — keep in
     // sync with .env.production (better-auth trustedOrigins, payment callbacks).
-    "VITE_APP_URL": "https://<worker>.<your-subdomain>.workers.dev",
-    "VITE_APP_NAME": "AI Site",
+    "VITE_APP_URL": "https://airapvideofree.com",
+    "VITE_APP_NAME": "AIRapVideoFree",
   },
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "aisite-db",
-      "database_id": "REPLACE_WITH_OUTPUT_OF_WRANGLER_D1_CREATE",
+      "database_name": "airapvideofree-db",
+      "database_id": "cab17055-16bb-40a3-a4b3-b39febf3e695",
       "migrations_dir": "drizzle",
     },
   ],

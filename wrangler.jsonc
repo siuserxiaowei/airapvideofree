@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "airapvideofree",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    "DATABASE_PROVIDER": "d1",
+    "VITE_APP_URL": "https://airapvideofree.com",
+    "VITE_APP_NAME": "AIRapVideoFree"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "airapvideofree-db",
+      "database_id": "cab17055-16bb-40a3-a4b3-b39febf3e695",
+      "migrations_dir": "drizzle"
+    }
+  ]
+}
