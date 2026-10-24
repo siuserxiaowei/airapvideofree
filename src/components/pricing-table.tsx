@@ -192,6 +192,25 @@ export function PricingTable({
                 : plan.buttonText || m['common.pricing.get_started']()}
             </Button>
 
+            {/* Direct Auto-Renewal & Payment Terms (FTC Negative Option & CA ARL Compliance) */}
+            <div className="mt-2.5 px-1 text-center text-[11px] leading-snug text-muted-foreground/85">
+              {plan.plan || plan.interval ? (
+                <>
+                  <span>
+                    {m['common.pricing.auto_renew_notice']({
+                      price: plan.price,
+                      interval: plan.interval || plan.plan?.interval || 'month',
+                    })}
+                  </span>{' '}
+                  <span className="mt-0.5 block text-[10px] text-muted-foreground/70">
+                    {m['common.pricing.cancel_anytime_notice']()}
+                  </span>
+                </>
+              ) : (
+                <span>{m['common.pricing.one_time_notice']()}</span>
+              )}
+            </div>
+
             {/* Features */}
             <ul className="mt-8 space-y-3">
               {plan.features.map((feature, i) => {

@@ -28,6 +28,9 @@ const signUpSchema = z
     password: z.string().min(8),
     confirmPassword: z.string().min(8),
     inviteCode: z.string(),
+    ageConfirmed: z.boolean().refine((val) => val === true, {
+      message: m['common.sign.age_verification_required'](),
+    }),
   })
   .refine((d) => d.password === d.confirmPassword, {
     path: ['confirmPassword'],
@@ -98,6 +101,7 @@ function SignUpPage() {
       password: '',
       confirmPassword: '',
       inviteCode: '',
+      ageConfirmed: false,
     },
     validators: { onSubmit: signUpSchema },
     onSubmit: async ({ value }) => {
@@ -204,6 +208,9 @@ function SignUpPage() {
 
                   {hasSocial && (
                     <Field>
+                      <p className="text-muted-foreground mb-1 text-center text-xs">
+                        {m['common.sign.social_consent_notice']()}
+                      </p>
                       {googleEnabled && (
                         <Button
                           variant="outline"
@@ -316,6 +323,46 @@ function SignUpPage() {
                           )}
                         </form.Field>
                       )}
+                      <form.Field name="ageConfirmed">
+                        {(field) => (
+                          <div className="space-y-1 py-1">
+                            <label className="text-muted-foreground flex cursor-pointer select-none items-start gap-2.5 text-xs">
+                              <input
+                                type="checkbox"
+                                checked={field.state.value === true}
+                                onChange={(e) =>
+                                  field.handleChange(e.target.checked)
+                                }
+                                className="border-border accent-primary mt-0.5 size-4 shrink-0 cursor-pointer rounded"
+                              />
+                              <span>
+                                {m['common.sign.age_verification_label']()}{' '}
+                                <Link
+                                  href="/terms-of-service"
+                                  target="_blank"
+                                  className="text-foreground/90 font-medium underline hover:text-foreground"
+                                >
+                                  {m['common.sign.terms_link']()}
+                                </Link>{' '}
+                                &amp;{' '}
+                                <Link
+                                  href="/privacy-policy"
+                                  target="_blank"
+                                  className="text-foreground/90 font-medium underline hover:text-foreground"
+                                >
+                                  {m['common.sign.privacy_link']()}
+                                </Link>
+                                .
+                              </span>
+                            </label>
+                            {field.state.meta.errors?.[0] && (
+                              <p className="text-destructive text-xs font-medium">
+                                {String(field.state.meta.errors[0])}
+                              </p>
+                            )}
+                          </div>
+                        )}
+                      </form.Field>
                       <Field>
                         <form.Subscribe selector={(s) => s.isSubmitting}>
                           {(isSubmitting) => (

@@ -81,6 +81,10 @@ export const Route = createRootRoute({
       meta: [
         { charSet: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        {
+          httpEquiv: 'Content-Security-Policy',
+          content: "font-src 'self' data:;",
+        },
         { title: envConfigs.app_name },
         { name: 'description', content: envConfigs.app_description },
       ],

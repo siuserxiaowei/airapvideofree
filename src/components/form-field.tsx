@@ -51,6 +51,15 @@ export function TextField({
         required={required}
         disabled={disabled}
         aria-invalid={error ? true : undefined}
+        {...(type === 'password' ||
+        field.name.includes('password') ||
+        field.name.includes('token')
+          ? {
+              'data-clarity-mask': 'true',
+              'data-private': 'true',
+              'data-hj-suppress': 'true',
+            }
+          : {})}
       />
       {error && <p className="text-destructive text-sm">{error}</p>}
     </Field>

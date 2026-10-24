@@ -73,6 +73,9 @@ export function VerifyEmail({
             <Text style={styles.footer}>
               If you didn&apos;t request this email, you can safely ignore it.
             </Text>
+            <Text style={styles.address}>
+              {appName} · 548 Market St, Suite 12345, San Francisco, CA 94104
+            </Text>
           </Section>
         </Container>
       </Body>
@@ -183,5 +186,13 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: 12,
     lineHeight: '18px',
     color: '#94a3b8',
+    textAlign: 'center',
+  },
+  address: {
+    margin: '8px 0 0',
+    fontSize: 11,
+    lineHeight: '16px',
+    color: '#94a3b8',
+    textAlign: 'center',
   },
 };

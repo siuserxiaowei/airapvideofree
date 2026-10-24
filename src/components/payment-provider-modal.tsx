@@ -81,6 +81,10 @@ export function PaymentProviderModal({
             );
           })}
         </div>
+
+        <div className="mt-3 text-center text-[11px] text-muted-foreground/80">
+          <p>{m['common.pricing.one_time_notice']()}</p>
+        </div>
       </DialogContent>
     </Dialog>
   );

@@ -10,6 +10,25 @@ export interface EmailAttachment {
 }
 
 /**
+ * Standard postal mailing address for CAN-SPAM and GDPR legal compliance
+ */
+export const DEFAULT_POSTAL_ADDRESS =
+  'AIRapVideoFree, 548 Market St, Suite 12345, San Francisco, CA 94104';
+
+/**
+ * Helper to generate CAN-SPAM & RFC-8058 compliant One-Click List-Unsubscribe headers
+ */
+export function createUnsubscribeHeaders(
+  unsubscribeUrl = 'https://airapvideofree.com/settings/profile',
+  unsubscribeEmail = 'unsubscribe@airapvideofree.com'
+): Record<string, string> {
+  return {
+    'List-Unsubscribe': `<${unsubscribeUrl}>, <mailto:${unsubscribeEmail}?subject=unsubscribe>`,
+    'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
+  };
+}
+
+/**
  * Email message interface
  */
 export interface EmailMessage {
