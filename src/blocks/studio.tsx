@@ -446,6 +446,21 @@ export function Studio({
             </div>
           )}
 
+          {tool.options?.map((opt) => (
+            <Chips
+              key={opt.key}
+              label={getLocale() === 'zh' ? opt.label.zh : opt.label.en}
+              options={opt.choices.map((c) => c.value)}
+              value={values[opt.key as FieldKey] ?? opt.default}
+              onChange={(v) => setOpts((o) => ({ ...o, [opt.key]: v }))}
+              format={(v) => {
+                const choice = opt.choices.find((c) => c.value === v);
+                if (!choice) return String(v);
+                return getLocale() === 'zh' ? choice.label.zh : choice.label.en;
+              }}
+            />
+          ))}
+
           {(['aspectRatio', 'resolution', 'duration'] as const)
             .filter((k) => fields.includes(k) && model.fields[k]?.options)
             .map((k) => (

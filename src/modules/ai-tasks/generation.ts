@@ -319,7 +319,18 @@ export async function startGeneration(params: {
   }
 
   const runner = getRunner(configs); // 没配 key 时在扣费前就报错
-  const userPrompt = String(values.prompt ?? '');
+  let userPrompt = String(values.prompt ?? '');
+  if (tool.options) {
+    for (const opt of tool.options) {
+      const val = values[opt.key as any] ?? opt.default;
+      const choice = opt.choices.find((c) => c.value === val);
+      if (choice?.prompt && !userPrompt.includes(choice.prompt)) {
+        userPrompt = userPrompt
+          ? `${userPrompt}, ${choice.prompt}`
+          : choice.prompt;
+      }
+    }
+  }
   const steps: Step[] = [];
   const pre = tool.pre && getModel(tool.pre.model);
   if (tool.pre && pre) {

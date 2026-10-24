@@ -26,6 +26,7 @@ const FIELD_ORDER: FieldKey[] = [
   'resolution',
   'duration',
   'audio',
+  'flow_vibe',
 ];
 
 export function toolModels(tool: ToolDef): ModelDef[] {
@@ -103,6 +104,17 @@ export function resolveValues(
   if (tool.pre && imgModel.fields.image && shown.has('image')) {
     const v = coerce(imgModel.fields.image, raw.image);
     if (v !== undefined) values.image = v;
+  }
+
+  // 工具自定义选项（如 flow_vibe / 运镜律动）
+  if (tool.options) {
+    for (const opt of tool.options) {
+      const rawVal = raw[opt.key];
+      const validChoice = opt.choices.find((c) => c.value === String(rawVal));
+      values[opt.key as FieldKey] = validChoice
+        ? validChoice.value
+        : opt.default;
+    }
   }
 
   if (toolTakesPrompt(tool)) {
