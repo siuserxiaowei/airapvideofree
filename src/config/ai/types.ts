@@ -25,7 +25,21 @@ export type FieldKey =
   | 'aspectRatio'
   | 'resolution'
   | 'duration'
-  | 'audio';
+  | 'audio'
+  | 'flow_vibe';
+
+export interface ToolOptionChoice {
+  value: string;
+  label: { en: string; zh: string };
+  prompt?: string;
+}
+
+export interface ToolOptionDef {
+  key: string;
+  label: { en: string; zh: string };
+  default: string;
+  choices: ToolOptionChoice[];
+}
 
 export type FieldValue = string | number | boolean | string[];
 export type GenValues = Partial<Record<FieldKey, FieldValue>>;
@@ -113,5 +127,7 @@ export interface ToolDef {
   /** 卡片预览（public/ 下的路径或 R2 链接），没有就显示色块 */
   preview?: { image?: string; video?: string };
   tag?: 'hot' | 'new' | 'rising';
+  /** 工具专有可选配置项（如说唱运镜与律动风格选择） */
+  options?: ToolOptionDef[];
   copy: { en: ToolCopy; zh: ToolCopy };
 }

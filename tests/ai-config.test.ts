@@ -149,3 +149,38 @@ test('provider input maps unified fields to each model’s params', () => {
   assert.deepEqual(input.image_input, ['https://x/1.png']);
   assert.equal(input.output_format, 'png');
 });
+
+test('new hip-hop presets west-coast-rap and anime-rap-battle exist and have valid config', () => {
+  for (const id of ['west-coast-rap', 'anime-rap-battle']) {
+    const t = getTool(id);
+    assert.ok(t, `tool ${id} exists`);
+    assert.equal(t!.type, 'effect');
+    assert.equal(t!.task, 'image-to-video');
+    assert.ok(t!.preview?.video, `${id} has preview video`);
+    assert.ok(t!.promptTemplate, `${id} has prompt template`);
+    assert.ok(t!.copy.en.name && t!.copy.zh.name);
+    assert.ok(t!.copy.en.description && t!.copy.zh.description);
+  }
+});
+
+test('tool custom options (flow_vibe) resolve correctly and fall back to default', () => {
+  const rap = getTool('ai-rap-video')!;
+  const model = getModel(rap.models[0])!;
+  assert.ok(rap.options && rap.options.length > 0, 'ai-rap-video has options');
+
+  // Valid choice
+  const res1 = resolveValues(rap, model, {
+    prompt: 'freestyle',
+    image: 'https://x/a.png',
+    flow_vibe: 'fisheye-handheld',
+  });
+  assert.equal(res1.values.flow_vibe, 'fisheye-handheld');
+
+  // Invalid choice falls back to default
+  const res2 = resolveValues(rap, model, {
+    prompt: 'freestyle',
+    image: 'https://x/a.png',
+    flow_vibe: 'non-existent-vibe',
+  });
+  assert.equal(res2.values.flow_vibe, 'drill-808-shake');
+});

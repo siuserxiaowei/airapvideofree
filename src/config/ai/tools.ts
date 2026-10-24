@@ -16,7 +16,43 @@ export const TOOLS: ToolDef[] = [
     task: 'image-to-video',
     models: ['kling-2-5-turbo-i2v', 'hailuo-2-3-fast-i2v'],
     defaults: { duration: 5, aspectRatio: '9:16' },
-    preview: { image: '/samples/mock-image.png', video: '/samples/rap-demo.mp4' },
+    preview: {
+      image: '/samples/mock-image.png',
+      video: '/samples/rap-demo.mp4',
+    },
+    options: [
+      {
+        key: 'flow_vibe',
+        label: { en: 'Flow & Camera Vibe', zh: 'Flow 镜头律动' },
+        default: 'drill-808-shake',
+        choices: [
+          {
+            value: 'drill-808-shake',
+            label: { en: 'Drill 808 Shake', zh: 'Drill 808 重低音震颤' },
+            prompt:
+              '808 bass camera shake effect, rhythmic camera bounce to the heavy hip-hop beat',
+          },
+          {
+            value: 'smooth-studio-pan',
+            label: { en: 'Smooth Studio Pan', zh: '录音棚平滑平移' },
+            prompt:
+              'smooth cinematic studio pan camera movement, steady professional motion glide',
+          },
+          {
+            value: 'fisheye-handheld',
+            label: { en: 'Fisheye Handheld', zh: '复古鱼眼手持' },
+            prompt:
+              '90s hip-hop music video fisheye lens, handheld dynamic street camera motion',
+          },
+          {
+            value: 'cinematic-drone',
+            label: { en: 'Cinematic Drone', zh: '电影级航拍环绕' },
+            prompt:
+              'cinematic drone orbit camera shot, sweeping wide angle aerial movement',
+          },
+        ],
+      },
+    ],
     copy: {
       en: {
         name: 'AI Rap Video Generator',
@@ -33,7 +69,8 @@ export const TOOLS: ToolDef[] = [
         h1Em: '说唱巨星。',
         description:
           '上传你的正面自拍或照片，输入说唱 Flow 与风格，AI 自动为你生成节拍卡点、点头律动与地道 Swag 的爆款说唱短视频。',
-        placeholder: '说唱歌手手握麦克风、激烈点头说唱，背景是霓虹街头，9:16 竖屏短视频',
+        placeholder:
+          '说唱歌手手握麦克风、激烈点头说唱，背景是霓虹街头，9:16 竖屏短视频',
       },
     },
   },
@@ -45,7 +82,10 @@ export const TOOLS: ToolDef[] = [
     task: 'image-to-video',
     models: ['kling-2-5-turbo-i2v', 'hailuo-2-3-fast-i2v'],
     tag: 'hot',
-    preview: { image: '/samples/mock-image.png', video: '/samples/rap-demo.mp4' },
+    preview: {
+      image: '/samples/mock-image.png',
+      video: '/samples/rap-demo.mp4',
+    },
     promptTemplate:
       "Viral TikTok Colors Show studio: the person in the photo is standing in a vibrant monochromatic orange studio booth wearing an oversized designer hoodie and gold chains, aggressively nodding head and rapping into a vintage studio microphone hanging from the ceiling. Fast rhythm, head bobbing, street swagger, authentic hip-hop flow. Keep the person's exact face, facial features, hairstyle and skin tone recognizable. High definition, cinematic 9:16 vertical video.",
     hidden: ['duration', 'aspectRatio'],
@@ -73,7 +113,10 @@ export const TOOLS: ToolDef[] = [
     task: 'image-to-video',
     models: ['kling-2-5-turbo-i2v', 'hailuo-2-3-fast-i2v'],
     tag: 'rising',
-    preview: { image: '/samples/mock-image.png', video: '/samples/rap-demo.mp4' },
+    preview: {
+      image: '/samples/mock-image.png',
+      video: '/samples/rap-demo.mp4',
+    },
     promptTemplate:
       "UK & NY Drill music video aesthetic: dark gritty London street at midnight with blue police sirens in the background, heavy fog and cold breath. The person from the photo is wearing a black technical puffer jacket and silver chain, delivering an aggressive rapid-fire rap verse directly to the camera with sharp hand gestures and intense eye contact. Keep the person's exact face, facial features and skin tone recognizable. Cinematic 9:16 vertical format, 808 bass camera shake effect.",
     hidden: ['duration', 'aspectRatio'],
@@ -96,12 +139,77 @@ export const TOOLS: ToolDef[] = [
     },
   },
   {
+    id: 'west-coast-rap',
+    type: 'effect',
+    task: 'image-to-video',
+    models: ['kling-2-5-turbo-i2v', 'hailuo-2-3-fast-i2v'],
+    tag: 'hot',
+    preview: {
+      image: '/samples/mock-image.png',
+      video: '/samples/rap-demo.mp4',
+    },
+    promptTemplate:
+      "90s West Coast G-Funk music video aesthetic: Compton Los Angeles boulevard lined with tall palm trees, lowrider hydraulic car bouncing in the background under warm golden hour sun flare. The person from the photo is wearing sunglasses, flannel shirt, and a gold chain, delivering an effortless West Coast rap flow with head nodding, hand gestures, and authentic hip-hop swagger. Retro California VHS tape texture, 35mm warm film look. Keep the person's exact face, facial features, hairstyle and skin tone recognizable. High definition, cinematic 9:16 vertical video.",
+    hidden: ['duration', 'aspectRatio'],
+    defaults: { duration: 5, aspectRatio: '9:16' },
+    copy: {
+      en: {
+        name: '90s West Coast G-Funk',
+        h1: 'Cruisin through the ',
+        h1Em: 'golden Cali sun.',
+        description:
+          'Step into a 90s West Coast G-Funk classic: bouncing lowriders, iconic LA palm trees, warm golden hour VHS tones, and effortless California swagger.',
+      },
+      zh: {
+        name: '90年代西海岸 G-Funk',
+        h1: '加州棕榈树下，',
+        h1Em: '跳跳车与落日金光。',
+        description:
+          '重回 90 年代美西 G-Funk 黄金年代：低趴跳跳车、洛杉矶棕榈树街景、复古 VHS 胶片暖光与随性从容的西海岸说唱律动。',
+      },
+    },
+  },
+  {
+    id: 'anime-rap-battle',
+    type: 'effect',
+    task: 'image-to-video',
+    models: ['kling-2-5-turbo-i2v', 'hailuo-2-3-fast-i2v'],
+    tag: 'rising',
+    preview: {
+      image: '/samples/mock-image.png',
+      video: '/samples/mock-video.mp4',
+    },
+    promptTemplate:
+      "High-octane anime rap battle cypher: modern cel-shaded anime aesthetic, electric neon lightning sparks, and kinetic manga speed lines. The person from the photo is transformed into a stylized anime hip-hop battle MC holding a glowing microphone, spitting fiery rap bars directly at dynamic battle camera angles with dramatic anime camera zooms and rhythmic head nodding. Keep the person's recognizable facial likeness, hairstyle and distinctive features in vibrant cel-shaded Japanese anime style. Electric purple and cyan lighting, cinematic 9:16 vertical video.",
+    hidden: ['duration', 'aspectRatio'],
+    defaults: { duration: 5, aspectRatio: '9:16' },
+    copy: {
+      en: {
+        name: 'Anime Rap Battle Cypher',
+        h1: 'Unleash high-voltage ',
+        h1Em: 'anime rap bars.',
+        description:
+          'Transform into a cel-shaded anime battle MC in an electric cypher. Dynamic battle camera cuts, neon lightning sparks, and high-energy rap flow.',
+      },
+      zh: {
+        name: '热血动漫说唱对决',
+        h1: '电光火石，',
+        h1Em: '赛璐珞热血说唱 Cypher。',
+        description:
+          '化身赛璐珞热血日漫说唱主角：霓虹电光火花、漫画速度线、极限透视战斗机位与爆燃卡点点头律动，炸裂二次元说唱对决。',
+      },
+    },
+  },
+  {
     id: 'cyberpunk-rap',
     type: 'effect',
     task: 'image-to-video',
     models: ['kling-2-5-turbo-i2v', 'hailuo-2-3-fast-i2v'],
     tag: 'new',
-    preview: { image: '/samples/mock-image.png', video: '/samples/rap-demo.mp4' },
+    preview: {
+      image: '/samples/mock-image.png',
+      video: '/samples/rap-demo.mp4',
+    },
     promptTemplate:
       "Futuristic Neo-Tokyo cyberpunk underground rap battle: holographic neon signs reflecting in puddles, rain slicked pavement. The person in the photo is wearing high-tech streetwear with subtle cybernetic facial accents, spitting fast rhymes with dynamic camera zoom punches on the downbeats. Authentic rap flow, swagger, head nodding. Keep the person's exact face, facial features and skin tone recognizable. Photorealistic, 9:16 vertical video.",
     hidden: ['duration', 'aspectRatio'],
@@ -128,9 +236,12 @@ export const TOOLS: ToolDef[] = [
     type: 'effect',
     task: 'image-to-video',
     models: ['kling-2-5-turbo-i2v', 'hailuo-2-3-fast-i2v'],
-    preview: { image: '/samples/mock-image.png', video: '/samples/rap-demo.mp4' },
+    preview: {
+      image: '/samples/mock-image.png',
+      video: '/samples/rap-demo.mp4',
+    },
     promptTemplate:
-      "Golden Era 90s East Coast hip-hop music video: Brooklyn brownstone brick wall background with graffiti art. The person in the photo is holding a classic Shure microphone, nodding head to the boom-bap rhythm and performing an old-school rap bar with classic 90s swagger. 35mm vintage film grain texture, natural warm lighting, recognizable face from the photo. 9:16 vertical video.",
+      'Golden Era 90s East Coast hip-hop music video: Brooklyn brownstone brick wall background with graffiti art. The person in the photo is holding a classic Shure microphone, nodding head to the boom-bap rhythm and performing an old-school rap bar with classic 90s swagger. 35mm vintage film grain texture, natural warm lighting, recognizable face from the photo. 9:16 vertical video.',
     hidden: ['duration', 'aspectRatio'],
     defaults: { duration: 5, aspectRatio: '9:16' },
     copy: {
@@ -156,7 +267,10 @@ export const TOOLS: ToolDef[] = [
     task: 'image-to-video',
     models: ['kling-2-5-turbo-i2v'],
     tag: 'new',
-    preview: { image: '/samples/mock-image.png', video: '/samples/rap-demo.mp4' },
+    preview: {
+      image: '/samples/mock-image.png',
+      video: '/samples/rap-demo.mp4',
+    },
     pre: {
       model: 'nano-banana-2-edit',
       promptTemplate:
@@ -191,7 +305,10 @@ export const TOOLS: ToolDef[] = [
     type: 'tool',
     task: 'image-to-video',
     models: ['kling-2-5-turbo-i2v', 'hailuo-2-3-fast-i2v'],
-    preview: { image: '/samples/mock-image.png', video: '/samples/rap-demo.mp4' },
+    preview: {
+      image: '/samples/mock-image.png',
+      video: '/samples/rap-demo.mp4',
+    },
     copy: {
       en: {
         name: 'Image to Video',
@@ -217,7 +334,10 @@ export const TOOLS: ToolDef[] = [
     type: 'tool',
     task: 'text-to-video',
     models: ['kling-2-5-turbo-t2v', 'veo-3-1-fast-t2v'],
-    preview: { image: '/samples/mock-image.png', video: '/samples/rap-demo.mp4' },
+    preview: {
+      image: '/samples/mock-image.png',
+      video: '/samples/rap-demo.mp4',
+    },
     copy: {
       en: {
         name: 'Text to Video',
@@ -234,7 +354,8 @@ export const TOOLS: ToolDef[] = [
         h1Em: '生成现场。',
         description:
           '输入文字描述，让 Kling、Seedance 或 Veo 从零生成电影级说唱演出镜头。',
-        placeholder: '电影级慢镜头：烟雾弥漫的嘻哈现场，聚光灯扫过欢呼的人群，4K',
+        placeholder:
+          '电影级慢镜头：烟雾弥漫的嘻哈现场，聚光灯扫过欢呼的人群，4K',
       },
     },
   },

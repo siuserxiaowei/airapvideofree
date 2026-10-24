@@ -9,6 +9,8 @@ export const HOME_TOOL = 'ai-rap-video';
 export const HOME_TOOLS = [
   'ai-rap-video',
   'hotel-lobby-rap',
+  'west-coast-rap',
+  'anime-rap-battle',
   'drill-rap',
   'cyberpunk-rap',
   'boom-bap-rap',
@@ -27,16 +29,47 @@ export interface ShowcaseItem {
 export const SHOWCASE: ShowcaseItem[] = [
   {
     src: '/samples/rap-demo.mp4',
+    poster: '/samples/mock-image.png',
     kind: 'video',
     model: 'Kling 2.5 Turbo',
     toolId: 'ai-rap-video',
-    prompt: 'Rapper spitting aggressive bars with authentic head nodding, holding a mic, 9:16 vertical video',
+    prompt:
+      'Rapper spitting aggressive bars with authentic head nodding, holding a mic, 9:16 vertical video',
   },
   {
     src: '/samples/mock-video.mp4',
+    poster: '/samples/mock-image.png',
     kind: 'video',
     model: 'Hailuo 2.3 Fast',
     toolId: 'hotel-lobby-rap',
-    prompt: 'Colors Show orange studio booth rap video with gold chains and authentic swagger',
+    prompt:
+      'Colors Show orange studio booth rap video with gold chains and authentic swagger',
+  },
+  {
+    src: '/samples/rap-demo.mp4',
+    poster: '/samples/mock-image.png',
+    kind: 'video',
+    model: 'Kling 2.5 Turbo',
+    toolId: 'west-coast-rap',
+    prompt:
+      '90s West Coast G-Funk vibe: LA palm trees, lowrider bouncing in golden hour sun flare with VHS warmth',
+  },
+  {
+    src: '/samples/mock-video.mp4',
+    poster: '/samples/mock-image.png',
+    kind: 'video',
+    model: 'Hailuo 2.3 Fast',
+    toolId: 'anime-rap-battle',
+    prompt:
+      'Cel-shaded anime rap battle cypher with neon lightning sparks and dynamic battle camera angles',
+  },
+  {
+    src: '/samples/rap-demo.mp4',
+    poster: '/samples/mock-image.png',
+    kind: 'video',
+    model: 'Kling 2.5 Turbo',
+    toolId: 'drill-rap',
+    prompt:
+      'Gritty midnight UK Drill rap video with cold breath, puffer jacket, and heavy 808 camera shake',
   },
 ];

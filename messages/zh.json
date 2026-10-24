@@ -1,7 +1,7 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
   "common.metadata.title": "AIRapVideoFree — 免费 AI 说唱视频生成器",
-  "common.metadata.description": "上传一张照片，60秒免费生成爆款 AI 说唱短视频。支持 TikTok 顶流橙色包厢、Drill 快嘴、90年代 Boom-Bap 与赛博朋克风格，地道点头卡点与街头 Swag。",
+  "common.metadata.description": "上传一张照片，60秒免费生成爆款 AI 说唱短视频。支持 TikTok 顶流橙色包厢、Drill 快嘴、西海岸 G-Funk、热血动漫对决与 90年代 Boom-Bap 风格，地道点头卡点与街头 Swag。",
   "common.sign.sign_in_title": "登录",
   "common.auth_callback.redirecting": "正在跳转…",
   "common.auth_callback.error": "登录未能完成，请重试。",
@@ -964,7 +964,7 @@
   "landing.nav.features": "怎么用",
   "landing.nav.pricing": "价格",
   "landing.hero.headline": "上传自拍，一秒变身",
-  "landing.hero.subheadline": "上传正面照片，选择说唱风格（橙色包厢、Drill 凶狠快嘴、90s 经典 Boom-Bap、赛博朋克），AI 自动为你生成节拍卡点、点头律动与地道台风的爆款短视频。",
+  "landing.hero.subheadline": "上传正面照片，选择说唱风格（橙色包厢、Drill 凶狠快嘴、西海岸 G-Funk、动漫说唱对决、90s 经典 Boom-Bap），AI 自动为你生成节拍卡点、点头律动与地道台风的爆款短视频。",
   "landing.hero.cta": "免费生成我的说唱视频",
   "landing.hero.secondary": "浏览说唱模版",
   "landing.pricing.title": "用多少，",
@@ -1150,5 +1150,14 @@
   "tool_page.model_title": "{model} 在线使用",
   "landing.nav.effects": "特效",
   "landing.showcase.remix": "做同款",
-  "landing.pricing.pack_desc": "大约够做 {count} 条视频"
+  "landing.pricing.pack_desc": "大约够做 {count} 条视频",
+  "studio.flow_vibe": "Flow 镜头律动",
+  "studio.flow_vibe.drill_808_shake": "Drill 808 重低音震颤",
+  "studio.flow_vibe.smooth_studio_pan": "录音棚平滑平移",
+  "studio.flow_vibe.fisheye_handheld": "复古鱼眼手持",
+  "studio.flow_vibe.cinematic_drone": "电影级航拍环绕",
+  "tools.west_coast_rap.name": "90年代西海岸 G-Funk",
+  "tools.west_coast_rap.description": "重回 90 年代美西 G-Funk 黄金年代：低趴跳跳车、洛杉矶棕榈树街景、复古 VHS 胶片暖光与随性从容的西海岸说唱律动。",
+  "tools.anime_rap_battle.name": "热血动漫说唱对决",
+  "tools.anime_rap_battle.description": "化身赛璐珞热血日漫说唱主角：霓虹电光火花、漫画速度线、极限透视战斗机位与爆燃卡点点头律动，炸裂二次元说唱对决。"
 }
