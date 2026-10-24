@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="112" fill="#1c1814"/>
+  <text x="50%" y="50%" dy="0.04em" text-anchor="middle" dominant-baseline="central"
+        font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+        font-size="300" font-weight="800" fill="#e8963c">L</text>
+</svg>

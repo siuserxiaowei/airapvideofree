@@ -1,0 +1,46 @@
+# deps / build artifacts (rebuilt inside the image)
+node_modules
+.output
+.nitro
+.tanstack
+dist
+build
+src/routeTree.gen.ts
+src/paraglide
+
+# env files — .env.production is created by CI and needed at build time
+# so Vite can inline VITE_* into the client bundle.
+.env
+.env.local
+.env.development
+!.env.example
+!.env.production
+
+# local database
+data
+drizzle
+
+# vcs / editors / tooling
+.git
+.github
+.vscode
+.idea
+.cursor
+.claude
+# 后台的 Agent 接口在构建时会打包 site-admin 技能的说明和脚本，只放行这一个
+!.claude/skills/site-admin
+.agents
+.codex
+.vercel
+.wrangler
+wrangler.jsonc
+wrangler.example.jsonc
+
+# docs & misc
+docs
+README.md
+LICENSE
+.DS_Store
+*.log
+*.pem
+*.tsbuildinfo
