@@ -22,6 +22,7 @@ import {
   providerInput,
   resolveValues,
   toolPrice,
+  type FieldKey,
   type GenValues,
   type MediaKind,
   type ModelDef,
@@ -322,7 +323,7 @@ export async function startGeneration(params: {
   let userPrompt = String(values.prompt ?? '');
   if (tool.options) {
     for (const opt of tool.options) {
-      const val = values[opt.key as any] ?? opt.default;
+      const val = values[opt.key as FieldKey] ?? opt.default;
       const choice = opt.choices.find((c) => c.value === val);
       if (choice?.prompt && !userPrompt.includes(choice.prompt)) {
         userPrompt = userPrompt
